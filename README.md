@@ -2,7 +2,7 @@
 
 A URL shortening API built with **FastAPI** and **PostgreSQL**. It creates short links, redirects visitors, tracks clicks, and supports custom aliases and link expiry.
 
-**Live demo:** _coming soon_
+**Live demo:**  https://url-shortener-bebz.onrender.com/docs
 
 ## Features
 
