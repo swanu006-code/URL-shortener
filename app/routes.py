@@ -1,3 +1,4 @@
+import os
 from datetime import datetime, timedelta, timezone
 
 from fastapi import APIRouter, Depends, HTTPException
@@ -11,7 +12,7 @@ from .schemas import LinkCreate
 from .utils import generate_code, is_expired
 
 router = APIRouter()
-
+BASE_URL = os.getenv("BASE_URL", "http://localhost:8000").rstrip("/")
 RESERVED = {"docs", "redoc", "stats", "shorten", "openapi"}
 
 
@@ -38,7 +39,7 @@ def shorten(payload: LinkCreate, db: Session = Depends(get_db)):
 
     return {
         "code": code,
-        "short_url": f"http://localhost:8000/{code}",
+        "short_url": f"{BASE_URL}/{code}",
         "expires_at": expires_at,
     }
 
